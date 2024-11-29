@@ -1,14 +1,17 @@
 from fastapi import FastAPI
-from app.api import users, s3, db
-from app.core.config import settings
+from app.routers import requirements, planning
+from app.config import settings
 
-app = FastAPI(title="CortexCraft Backend", version="1.0.0")
+app = FastAPI(
+    title="CortexCraft",
+    description="SDLC Automation Platform Backend",
+    version="1.0.0"
+)
 
-# Register routes
-app.include_router(users.router, prefix="/users", tags=["Users"])
-app.include_router(s3.router, prefix="/s3", tags=["S3"])
-app.include_router(db.router, prefix="/db", tags=["Database"])
+# Include routers
+app.include_router(requirements.router, prefix="/api/requirements", tags=["Requirements"])
+app.include_router(planning.router, prefix="/api/planning", tags=["Planning"])
 
 @app.get("/")
-def root():
-    return {"message": "Welcome to CortexCraft Backend"}
+def read_root():
+    return {"message": "Welcome to CortexCraft API!"}
