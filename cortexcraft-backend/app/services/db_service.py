@@ -49,6 +49,13 @@ def save_requirement(requirement):
         # return the inserted ID for the response
         return result.inserted_primary_key[0]
 
+def get_all_requirements():
+    with engine.connect() as conn:
+        result = conn.execute(requirements_table.select())
+        # Convert each row to a dictionary
+        requirements = [dict(zip(result.keys(), row)) for row in result.fetchall()]
+        return requirements
+
 # Insert example
 def save_task(task):
     with engine.connect() as conn:
@@ -63,3 +70,10 @@ def save_task(task):
             )
             logging.info(f"Task saved with ID: {result.inserted_primary_key}")
             return result.inserted_primary_key
+
+def get_all_tasks():
+    with engine.connect() as conn:
+        result = conn.execute(tasks_table.select())
+        # Convert each row to a dictionary
+        tasks = [dict(zip(result.keys(), row)) for row in result.fetchall()]
+        return tasks

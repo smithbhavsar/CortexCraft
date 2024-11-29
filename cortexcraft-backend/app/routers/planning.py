@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from app.services.db_service import save_task
+from app.services.db_service import save_task, get_all_tasks
 
 router = APIRouter()
 
@@ -17,3 +17,12 @@ async def create_task(task: Task):
         return {"message": "Task created successfully", "task": task}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/tasks")
+async def get_tasks():
+    try:
+        tasks = get_all_tasks()  # Function to fetch all tasks
+        return tasks
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
