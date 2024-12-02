@@ -77,3 +77,13 @@ def get_all_tasks():
         # Convert each row to a dictionary
         tasks = [dict(zip(result.keys(), row)) for row in result.fetchall()]
         return tasks
+    
+def get_task_by_id(task_id: int):
+    with engine.connect() as conn:
+        result = conn.execute(tasks_table.select().where(tasks_table.c.id == task_id))
+        task = result.fetchone() 
+        
+        if task is None:
+            return None 
+        
+        return dict(zip(result.keys(), task))  
