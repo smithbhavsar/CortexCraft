@@ -1,0 +1,130 @@
+/* General reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  background: #F8F9FA; /* Light Grayish White background */
+  color: #495057; /* Darker Gray text */
+}
+
+/* Flexbox layout for the app container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: #343A40; /* Charcoal Gray background */
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+/* Main content area */
+main {
+  flex: 1; /* Pushes the footer to the bottom */
+  padding: 4rem;
+  text-align: center;
+}
+
+/* Prompt form */
+.prompt-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #FFFFFF; /* White background */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 650px) {
+  .prompt-form {
+    max-width: 90%; /* Adjust width to maintain consistent margins */
+  }
+}
+
+.prompt-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #CED4DA; /* Light Gray border */
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  background: #F1F1F1; /* Light background for text area */
+  color: #495057; /* Darker Gray text */
+}
+
+.prompt-form button {
+  background: #495057; /* Darker Gray background */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.prompt-form button:disabled {
+  background: #ADB5BD; /* Gray when disabled */
+  cursor: not-allowed;
+}
+
+.prompt-form button:hover:not(:disabled) {
+  background: #343A40; /* Charcoal Gray on hover */
+}
+
+/* Example section */
+.examples {
+  margin-top: 2rem;
+  text-align: left;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.examples h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #343A40; /* Charcoal Gray for the header */
+}
+
+.examples ul {
+  list-style: none;
+  padding: 0;
+}
+
+.examples li {
+  padding: 0.5rem;
+  background: #FFFFFF; /* White background */
+  border: 1px solid #CED4DA; /* Light Gray border */
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: #495057; /* Darker Gray text */
+}
+
+.examples li:hover {
+  background: #E9ECEF; /* Light Gray on hover */
+}
+
+/* Footer */
+footer {
+  background: #343A40; /* Charcoal Gray background */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto; /* Ensures footer stays at the bottom */
+}

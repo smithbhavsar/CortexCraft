@@ -1,0 +1,153 @@
+/* Dashboard container */
+.dashboard-container {
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #F8F9FA; /* Light Grayish White background */
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #F8F9FA; /* Darker Gray title */
+}
+
+.dashboard-header p {
+  font-size: 1.125rem;
+  color: #F8F9FA; /* Dark Gray for description */
+  line-height: 1.6;
+}
+
+/* Section styling */
+.details-section {
+  background-color: #FFFFFF; /* White background for sections */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #343A40; /* Charcoal Gray for section titles */
+  margin-bottom: 15px;
+}
+
+.details-list {
+  list-style-type: disc;
+  padding-left: 30px;
+  font-size: 1.125rem;
+  color: #495057; /* Darker Gray for list text */
+}
+
+.detail-item {
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+.task-container {
+  margin-bottom: 20px;
+}
+
+.task-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #495057; /* Darker Gray for task titles */
+  margin-bottom: 10px;
+}
+
+.task-steps {
+  font-size: 1.125rem;
+  color: #6C757D; /* Dark Gray for task steps */
+  margin-left: 20px;
+}
+
+/* Button styles */
+button {
+  background-color: #ADB5BD; /* Gray background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #495057; /* Darker Gray for hover state */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-header p {
+    font-size: 1rem;
+  }
+
+  .details-section {
+    padding: 15px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .details-list {
+    font-size: 1rem;
+  }
+
+  .task-title {
+    font-size: 1.25rem;
+  }
+
+  .task-steps {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .dashboard-header p {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .details-list {
+    font-size: 0.95rem;
+  }
+
+  .task-title {
+    font-size: 1.125rem;
+  }
+
+  .task-steps {
+    font-size: 0.95rem;
+  }
+}
