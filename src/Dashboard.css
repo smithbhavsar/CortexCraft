@@ -6,6 +6,7 @@
   background-color: #F8F9FA; /* Light Grayish White background */
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
 }
 
 /* Header styling */
@@ -18,12 +19,12 @@
   font-size: 2.5rem;
   margin-bottom: 10px;
   font-weight: 600;
-  color: #F8F9FA; /* Darker Gray title */
+  color: #ffffff; /* White title */
 }
 
 .dashboard-header p {
   font-size: 1.125rem;
-  color: #F8F9FA; /* Dark Gray for description */
+  color: #ffffff; /* White for description */
   line-height: 1.6;
 }
 
@@ -43,33 +44,101 @@
   margin-bottom: 15px;
 }
 
-.details-list {
-  list-style-type: disc;
-  padding-left: 30px;
-  font-size: 1.125rem;
-  color: #495057; /* Darker Gray for list text */
-}
-
-.detail-item {
-  margin-bottom: 10px;
-  line-height: 1.8;
-}
-
-.task-container {
+/* Table styling */
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
   margin-bottom: 20px;
 }
 
-.task-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #495057; /* Darker Gray for task titles */
-  margin-bottom: 10px;
+.details-table th,
+.details-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ADB5BD; /* Gray border */
 }
 
-.task-steps {
-  font-size: 1.125rem;
-  color: #6C757D; /* Dark Gray for task steps */
-  margin-left: 20px;
+.details-table th {
+  background-color: #F8F9FA; /* Light Grayish White background */
+  font-weight: 600;
+  color: #343A40; /* Charcoal Gray for headers */
+}
+
+.details-table tbody tr:hover {
+  background-color: #F8F9FA; /* Light Grayish White background on hover */
+}
+
+/* Fixed Width for Status Column */
+.details-table th:nth-child(2),
+.details-table td:nth-child(2) {
+  width: 120px; /* Fixed width for status column */
+  min-width: 120px; /* Ensure it doesn't shrink */
+  max-width: 120px; /* Ensure it doesn't expand */
+  text-align: center; /* Center-align status text */
+}
+
+/* Truncate Long Task Text */
+.details-table td:first-child {
+  max-width: 300px; /* Adjust based on your layout */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for truncated text */
+}
+
+/* Table Input and Select Styling */
+.details-table input,
+.details-table select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ADB5BD; /* Gray border */
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #495057; /* Dark Gray text */
+  background-color: #F8F9FA; /* Light Grayish White background */
+}
+
+.details-table input:focus,
+.details-table select:focus {
+  border-color: #495057; /* Darker Gray border on focus */
+  outline: none;
+}
+
+/* Status Styling */
+.status {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  display: inline-block; /* Ensure status doesn't stretch */
+}
+
+.status.pending-review {
+  background-color: #FFF3CD; /* Light Yellow for Pending Review */
+  color: #856404;
+}
+
+.status.approved {
+  background-color: #D4EDDA; /* Light Green for Approved */
+  color: #155724;
+}
+
+.status.rejected {
+  background-color: #F8D7DA; /* Light Red for Rejected */
+  color: #721C24;
+}
+
+.status.to-do {
+  background-color: #E2E3E5; /* Light Gray for To-Do */
+  color: #383D41;
+}
+
+.status.in-progress {
+  background-color: #D1ECF1; /* Light Blue for In Progress */
+  color: #0C5460;
+}
+
+.status.completed {
+  background-color: #D4EDDA; /* Light Green for Completed */
+  color: #155724;
 }
 
 /* Button styles */
@@ -81,10 +150,26 @@ button {
   cursor: pointer;
   font-size: 1rem;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #495057; /* Darker Gray for hover state */
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.edit-buttons button {
+  flex: 1;
+  max-width: 150px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  text-align: center;
 }
 
 /* Responsive design */
@@ -109,16 +194,9 @@ button:hover {
     font-size: 1.5rem;
   }
 
-  .details-list {
-    font-size: 1rem;
-  }
-
-  .task-title {
-    font-size: 1.25rem;
-  }
-
-  .task-steps {
-    font-size: 1rem;
+  .details-table th,
+  .details-table td {
+    padding: 10px;
   }
 }
 
@@ -139,53 +217,16 @@ button:hover {
     font-size: 1.25rem;
   }
 
-  .details-list {
-    font-size: 0.95rem;
+  .details-table th,
+  .details-table td {
+    padding: 8px;
   }
 
-  .task-title {
-    font-size: 1.125rem;
+  /* Adjust status column width for smaller screens */
+  .details-table th:nth-child(2),
+  .details-table td:nth-child(2) {
+    width: 100px; /* Smaller fixed width for mobile */
+    min-width: 100px;
+    max-width: 100px;
   }
-
-  .task-steps {
-    font-size: 0.95rem;
-  }
-}
-
-/* Responsive and auto-resizing textareas */
-.details-section textarea {
-  width: 100%; /* Full width */
-  min-height: 50px; /* Minimum height */
-  font-size: 1rem;
-  padding: 10px;
-  border: 1px solid #ADB5BD; /* Gray border */
-  border-radius: 4px;
-  background-color: #F8F9FA;
-  color: #495057; /* Dark Gray text */
-  resize: none; /* Disable manual resizing */
-  overflow-y: hidden; /* Hide scrollbar */
-  transition: border 0.3s ease-in-out;
-}
-
-/* Autofit height based on content */
-.details-section textarea:focus,
-.details-section textarea:valid {
-  border-color: #ADB5BD;
-  outline: none;
-}
-
-
-.edit-buttons {
-  display: flex;
-  justify-content: center; /* Center the buttons horizontally */
-  gap: 15px; /* Space between buttons */
-  margin-top: 20px;
-}
-
-.edit-buttons button {
-  flex: 1; /* Make both buttons the same size */
-  max-width: 150px; /* Set a fixed max width */
-  padding: 12px 20px;
-  font-size: 1rem;
-  text-align: center;
 }
