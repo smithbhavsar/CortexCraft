@@ -151,3 +151,41 @@ button:hover {
     font-size: 0.95rem;
   }
 }
+
+/* Responsive and auto-resizing textareas */
+.details-section textarea {
+  width: 100%; /* Full width */
+  min-height: 50px; /* Minimum height */
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #ADB5BD; /* Gray border */
+  border-radius: 4px;
+  background-color: #F8F9FA;
+  color: #495057; /* Dark Gray text */
+  resize: none; /* Disable manual resizing */
+  overflow-y: hidden; /* Hide scrollbar */
+  transition: border 0.3s ease-in-out;
+}
+
+/* Autofit height based on content */
+.details-section textarea:focus,
+.details-section textarea:valid {
+  border-color: #ADB5BD;
+  outline: none;
+}
+
+
+.edit-buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.edit-buttons button {
+  flex: 1; /* Make both buttons the same size */
+  max-width: 150px; /* Set a fixed max width */
+  padding: 12px 20px;
+  font-size: 1rem;
+  text-align: center;
+}
